@@ -1,7 +1,7 @@
 
 # Artistic UI
 
-Artistic UI package lets you create different types of buttons and containers with your choice of functionalities.
+Artistic UI package lets you create different types of buttons and containers with your choice of functionalities. You can create one text container using CustomButton and 2 Text widgets button using CustomButtonDoubleText...
 
 ## Installation
 
@@ -25,26 +25,35 @@ import 'package:artistic_ui/artistic_ui.dart';
 <td>
 
 ```dart
-class FancyScreen extends StatelessWidget {  
-  const FancyScreen({Key? key}) : super(key: key);  
+class ArtisticScreen extends StatelessWidget {  
+  const ArtisticScreen({Key? key}) : super(key: key);  
   
   @override  
   Widget build(BuildContext context) {  
     return Scaffold(  
-      body: Center(  
-        child: const CustomButton(
-          onPressed: () {
-            
-          },
-          text: "UI",
-          containerColor: Colors.white,
-          padding: 20.0,
-          shadowColor: Colors.pinkAccent,
-          borderRadius: 30.0,
-          textColor: Colors.pink,
-          fontSize: 13.0,
-        ),
-      ),  
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: CustomButton(
+              onPressed: () {},
+              text: "This is your text",
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: CustomButtonDoubleText(
+              onPressed: () {},
+              containerColor: Colors.pinkAccent,
+              lowerText: "Lower Text",
+              upperTextColor: Colors.white,
+              upperText: "Upper Text",
+            ),
+          ),
+        ],
+      ),
     );  
   }  
 }
@@ -58,11 +67,13 @@ class FancyScreen extends StatelessWidget {
 </table>
 There are a number of properties that you can modify:
 
--height
--width
--text size
--text color
--container color
--container shadow
--container border
--shadow color
+- Height
+- Width
+- Text size
+- Text color
+- Container color
+- Container shadow
+- Container border
+- Shadow color
+- Text weight
+- Space between widget and many more
