@@ -412,3 +412,360 @@ class _BorderTextFieldState extends State<BorderTextField> {
     );
   }
 }
+
+class FilledTextField extends StatefulWidget {
+  ///this is the controller which controls what happens to the text you type in text field
+  final TextEditingController inputController;
+
+  ///this is the title that comes on top outside the text field
+  var title;
+
+  ///this is the title font size
+  var titleFontSize;
+
+  ///this is the space between the text field and the title
+  var spaceBetweenTitle;
+
+  ///this is the height of the text field
+  var textFieldHeight;
+
+  ///this is the input hint given inside the text field
+  String inputHint;
+
+  ///this is the filled color which is given to the text field
+  var filledColor;
+
+  ///this is the hint text color
+  var inputHintColor;
+
+  ///this is the title font weight (bold or italic, etc)
+  var titleFontWeight;
+
+  ///this is the icon color if the icon is given
+  var prefixIconColor;
+
+  ///this is the padding inside the text field
+  var contextHorizontalPadding;
+
+  ///this is the vertical content padding inside the text field
+  var contextVerticalPadding;
+
+  ///this is the input font size
+  var inputFontSize;
+
+  ///this is the color of the text written in the text field
+  var inputColor;
+
+  ///this is the width of the text field
+  var textFieldWidth;
+
+  ///this is the horizontal margin for the text field from the screen
+  var horizontalMargin;
+
+  ///this is the prefix icon
+  var prefixIcon;
+
+  ///this is the circular radius for the container. If you want to you can give it to the field
+  var fieldBorderRadius;
+
+  ///this is the color of the title text outside the text field
+  var titleColor;
+
+  ///this is the input type that specify the keyboard type when user click on the text field
+  TextInputType inputType;
+
+  ///constructor
+  FilledTextField({
+    Key? key,
+    required this.inputController,
+    this.title,
+    this.textFieldWidth,
+    this.contextHorizontalPadding,
+    this.contextVerticalPadding,
+    required this.inputHint,
+    this.horizontalMargin,
+    required this.filledColor,
+    this.titleFontSize,
+    required this.inputType,
+    this.inputColor,
+    this.inputHintColor,
+    this.spaceBetweenTitle,
+    this.fieldBorderRadius,
+    this.inputFontSize,
+    this.prefixIcon,
+    this.prefixIconColor,
+    this.textFieldHeight,
+    this.titleColor,
+    this.titleFontWeight,
+  }) : super(key: key);
+
+  @override
+  State<FilledTextField> createState() => _FilledTextFieldState();
+}
+
+class _FilledTextFieldState extends State<FilledTextField> {
+  @override
+  Widget build(BuildContext context) {
+    ///this is the main widget
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.title?.toString() ?? "",
+          style: TextStyle(
+            fontSize: widget.titleFontSize?.toDouble() ?? 18,
+            fontWeight: widget.titleFontWeight ?? FontWeight.bold,
+            color: widget.titleColor ?? Colors.black,
+          ),
+        ),
+        SizedBox(
+          height: widget.spaceBetweenTitle?.toDouble() ?? 0,
+        ),
+
+        ///this is the text field widget
+        Container(
+          width: widget.textFieldWidth?.toDouble() ??
+              MediaQuery.of(context).size.width,
+          height: widget.textFieldHeight?.toDouble() ?? 50,
+          margin: EdgeInsets.symmetric(
+              horizontal: widget.horizontalMargin?.toDouble() ?? 0),
+          decoration: BoxDecoration(
+            color: widget.filledColor ?? Colors.red,
+            borderRadius: BorderRadius.circular(
+                widget.fieldBorderRadius?.toDouble() ?? 0),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: widget.prefixIcon == null ? 0 : 20,
+              ),
+              widget.prefixIcon == null
+                  ? Container()
+                  : Icon(
+                      widget.prefixIcon,
+                      size: 20,
+                      color: widget.prefixIconColor ?? Colors.white,
+                    ),
+              Expanded(
+                child: TextField(
+                  controller: widget.inputController,
+                  keyboardType: widget.inputType,
+                  style: TextStyle(
+                      fontSize: widget.inputFontSize?.toDouble() ?? 14,
+                      color: widget.inputColor ?? Colors.white),
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: widget.inputHint,
+                    hintStyle:
+                        TextStyle(color: widget.inputHintColor ?? Colors.white),
+                    contentPadding: EdgeInsets.symmetric(
+                        vertical:
+                            widget.contextVerticalPadding?.toDouble() ?? 0.0,
+                        horizontal:
+                            widget.contextHorizontalPadding?.toDouble() ??
+                                20.0),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class EmailValidationField extends StatefulWidget {
+  ///this is the controller which controls what happens to the text you type in text field
+  final TextEditingController inputController;
+
+  ///this is the title that comes on top outside the text field
+  var title;
+
+  ///this is the title font size
+  var titleFontSize;
+
+  ///this is the space between the text field and the title
+  var spaceBetweenTitle;
+
+  ///this is the height of the text field
+  var textFieldHeight;
+
+  ///this is the input hint given inside the text field
+  String inputHint;
+
+  ///this is the filled color which is given to the text field
+  var filledColor;
+
+  ///this is the hint text color
+  var inputHintColor;
+
+  ///this is the title font weight (bold or italic, etc)
+  var titleFontWeight;
+
+  ///this is the icon color if the icon is given
+  var prefixIconColor;
+
+  ///this is the padding inside the text field
+  var contextHorizontalPadding;
+
+  ///this is the vertical content padding inside the text field
+  var contextVerticalPadding;
+
+  ///this is the input font size
+  var inputFontSize;
+
+  ///this is the color of the text written in the text field
+  var inputColor;
+
+  ///this is the width of the text field
+  var textFieldWidth;
+
+  ///this is the horizontal margin for the text field from the screen
+  var horizontalMargin;
+
+  ///this is the prefix icon
+  var prefixIcon;
+
+  ///this is the circular radius for the container. If you want to you can give it to the field
+  var fieldBorderRadius;
+
+  ///this is the color of the title text outside the text field
+  var titleColor;
+
+  GlobalKey<FormState> globalKey;
+
+  ///this is the input type that specify the keyboard type when user click on the text field
+  TextInputType inputType;
+
+  ///this is the shadow of text field
+  var shadowColor;
+
+  ///constructor
+  EmailValidationField({
+    Key? key,
+    required this.inputController,
+    required this.globalKey,
+    this.title,
+    this.textFieldWidth,
+    this.shadowColor,
+    this.contextHorizontalPadding,
+    this.contextVerticalPadding,
+    required this.inputHint,
+    this.horizontalMargin,
+    required this.filledColor,
+    this.titleFontSize,
+    required this.inputType,
+    this.inputColor,
+    this.inputHintColor,
+    this.spaceBetweenTitle,
+    this.fieldBorderRadius,
+    this.inputFontSize,
+    this.prefixIcon,
+    this.prefixIconColor,
+    this.textFieldHeight,
+    this.titleColor,
+    this.titleFontWeight,
+  }) : super(key: key);
+
+  @override
+  State<EmailValidationField> createState() => _EmailValidationFieldState();
+}
+
+class _EmailValidationFieldState extends State<EmailValidationField> {
+  @override
+  Widget build(BuildContext context) {
+    ///this is the main widget
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.title?.toString() ?? "",
+          style: TextStyle(
+            fontSize: widget.titleFontSize?.toDouble() ?? 18,
+            fontWeight: widget.titleFontWeight ?? FontWeight.bold,
+            color: widget.titleColor ?? Colors.black,
+          ),
+        ),
+        SizedBox(
+          height: widget.spaceBetweenTitle?.toDouble() ?? 0,
+        ),
+
+        ///this is the text field widget
+        Form(
+          key: widget.globalKey,
+          child: Container(
+            width: widget.textFieldWidth?.toDouble() ??
+                MediaQuery.of(context).size.width * 0.9,
+            height: widget.textFieldHeight?.toDouble() ?? 50,
+            margin: EdgeInsets.symmetric(
+                horizontal: widget.horizontalMargin?.toDouble() ?? 0),
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  offset: const Offset(0, 3),
+                  color: widget.shadowColor ?? Colors.black.withOpacity(0.6),
+                  blurRadius: 3,
+                )
+              ],
+              color: widget.filledColor ?? Colors.white,
+              borderRadius: BorderRadius.circular(
+                  widget.fieldBorderRadius?.toDouble() ?? 0),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: widget.prefixIcon == null ? 0 : 20,
+                ),
+                widget.prefixIcon == null
+                    ? Container()
+                    : Icon(
+                        widget.prefixIcon,
+                        size: 20,
+                        color: widget.prefixIconColor ?? Colors.black,
+                      ),
+                Expanded(
+                  child: TextFormField(
+                    validator: (val) =>
+                        (!val!.isNotEmpty || !val.toString().contains("@"))
+                            ? "Please Enter Your Email"
+                            : null,
+                    controller: widget.inputController,
+                    keyboardType: widget.inputType,
+                    style: TextStyle(
+                        fontSize: widget.inputFontSize?.toDouble() ?? 14,
+                        color: widget.inputColor ?? Colors.black),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: widget.inputHint,
+                      hintStyle: TextStyle(
+                          color: widget.inputHintColor ?? Colors.black),
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical:
+                              widget.contextVerticalPadding?.toDouble() ?? 0.0,
+                          horizontal:
+                              widget.contextHorizontalPadding?.toDouble() ??
+                                  20.0),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+bool validateAndSave(GlobalKey<FormState> globalKey) {
+  final form = globalKey.currentState;
+  if (form!.validate()) {
+    form.save();
+    return true;
+  } else {
+    return false;
+  }
+}
